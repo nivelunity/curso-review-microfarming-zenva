@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -16,14 +17,19 @@ public class PlayerController : MonoBehaviour
    public LayerMask interactLayerMask;
 
    public Rigidbody2D rig;
-   public SpriteRenderer sr;
+   public SpriteRenderer srHead;
+   public SpriteRenderer srHoe;
+
 
    private void Update()
    {
       if (moveInput.magnitude != 0.0f)
       {
          facingDir = moveInput.normalized;
-         sr.flipX = moveInput.x > 0;
+
+         bool isFlip = moveInput.x > 0;
+         srHead.flipX = isFlip ;
+         srHoe.flipX = isFlip;
       }
    }
 
