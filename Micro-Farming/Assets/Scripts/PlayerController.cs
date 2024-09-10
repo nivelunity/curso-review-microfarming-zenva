@@ -18,6 +18,15 @@ public class PlayerController : MonoBehaviour
    public Rigidbody2D rig;
    public SpriteRenderer sr;
 
+   private void Update()
+   {
+      if (moveInput.magnitude != 0.0f)
+      {
+         facingDir = moveInput.normalized;
+         sr.flipX = moveInput.x > 0;
+      }
+   }
+
    private void FixedUpdate()
    {
       rig.velocity = moveInput.normalized * moveSpeed;
