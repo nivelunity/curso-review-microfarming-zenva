@@ -43,7 +43,13 @@ public class FieldTile : MonoBehaviour
 
     void PlantNewCrop(CropData crop)
     {
+        if(!tilled) return;
         
+        curCrop = Instantiate(cropPrefab, transform).GetComponent<Crop>();
+        curCrop.Plant(crop);
+
+        GameManager.instance.onNewDay += OnNewDay;
+
     }
 
     void Till()
