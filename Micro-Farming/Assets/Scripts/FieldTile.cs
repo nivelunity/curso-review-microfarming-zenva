@@ -54,17 +54,22 @@ public class FieldTile : MonoBehaviour
 
     void Till()
     {
-        
+        tilled = true;
+        sr.sprite = tilledSprite;
     }
 
     void Water()
     {
-        
+        sr.sprite = wateredTilledSprite;
+        if (HasCrop())
+        {
+            curCrop.Water();
+        }
     }
 
     void OnNewDay()
     {
-        
+       
     }
 
     bool HasCrop()
