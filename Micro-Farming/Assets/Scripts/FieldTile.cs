@@ -69,7 +69,17 @@ public class FieldTile : MonoBehaviour
 
     void OnNewDay()
     {
-       
+        if (curCrop == null)
+        {
+            tilled = false;
+            sr.sprite = grassSprite;
+            GameManager.instance.onNewDay -= OnNewDay;
+        }
+        else if(curCrop != null)
+        {
+            sr.sprite = tilledSprite;
+            curCrop.NewDayCheck();
+        }
     }
 
     bool HasCrop()
