@@ -2924,6 +2924,7 @@ MonoBehaviour:
   money: 100
   cropInventory: 4
   selectedCropToPlant: {fileID: 11400000, guid: 5a3f1dd9d822048469b82ef414ad63d0, type: 2}
+  statsText: {fileID: 1140240806}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
