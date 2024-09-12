@@ -20,7 +20,8 @@ public class PlayerController : MonoBehaviour
    public SpriteRenderer srHead;
    public SpriteRenderer srHoe;
 
-
+   public Transform interactPoint;
+   
    private void Update()
    {
       //Mover
@@ -49,7 +50,7 @@ public class PlayerController : MonoBehaviour
 
    private void TryInteractTile()
    {
-      RaycastHit2D hit = Physics2D.Raycast((Vector2) transform.position + facingDir, Vector3.up, 0.1f, interactLayerMask);
+      RaycastHit2D hit = Physics2D.Raycast((Vector2) interactPoint.position + facingDir, Vector3.up, 0.1f, interactLayerMask);
 
       if (hit.collider != null)
       {
