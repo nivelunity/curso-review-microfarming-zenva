@@ -42,6 +42,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        UpdateStatesText();
+    }
+
     public void SetNextDay()
     {
         curDay++;
