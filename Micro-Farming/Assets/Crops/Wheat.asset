@@ -20,6 +20,6 @@ MonoBehaviour:
   - {fileID: 1285027712, guid: 7e7b62032f1ba824ebfd7835c05cc5a4, type: 3}
   - {fileID: -506558934, guid: 7e7b62032f1ba824ebfd7835c05cc5a4, type: 3}
   - {fileID: -2095065548, guid: 7e7b62032f1ba824ebfd7835c05cc5a4, type: 3}
-  readyToHarvestSprite: {fileID: -506558934, guid: 7e7b62032f1ba824ebfd7835c05cc5a4, type: 3}
+  readyToHarvestSprite: {fileID: -2095065548, guid: 7e7b62032f1ba824ebfd7835c05cc5a4, type: 3}
   purchasePrice: 20
   sellPrice: 35
