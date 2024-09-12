@@ -26,4 +26,29 @@ public class FieldTile : MonoBehaviour
         gameObject.SetActive(false);
         Debug.Log("Interacted!");   
     }
+
+    void PlantNewCrop(CropData crop)
+    {
+        
+    }
+
+    void Till()
+    {
+        
+    }
+
+    void Water()
+    {
+        
+    }
+
+    void OnNewDay()
+    {
+        
+    }
+
+    bool HasCrop()
+    {
+        return true;
+    }   
 }
