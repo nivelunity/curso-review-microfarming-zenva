@@ -2683,6 +2683,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4104b8a9b3291242aa6b5317a34a11b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curDay: 0
+  money: 100
+  cropInventory: 4
+  selectedCropToPlant: {fileID: 11400000, guid: 5a3f1dd9d822048469b82ef414ad63d0, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
