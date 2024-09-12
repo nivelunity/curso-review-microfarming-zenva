@@ -20,9 +20,11 @@ public class PlayerController : MonoBehaviour
    public SpriteRenderer srHead;
    public SpriteRenderer srHoe;
 
-
+   public Transform interactPoint;
+   
    private void Update()
    {
+      //Mover
       if (moveInput.magnitude != 0.0f)
       {
          facingDir = moveInput.normalized;
@@ -31,11 +33,30 @@ public class PlayerController : MonoBehaviour
          srHead.flipX = isFlip ;
          srHoe.flipX = isFlip;
       }
+      
+      //Interact
+      if (interactInput)
+      {
+         TryInteractTile();
+         interactInput = false;
+      }
+      
    }
 
    private void FixedUpdate()
    {
       rig.velocity = moveInput.normalized * moveSpeed;
+   }
+
+   private void TryInteractTile()
+   {
+      RaycastHit2D hit = Physics2D.Raycast((Vector2) interactPoint.position + facingDir, Vector3.up, 0.1f, interactLayerMask);
+
+      if (hit.collider != null)
+      {
+         FieldTile tile = hit.collider.GetComponent<FieldTile>();
+         tile.Interact();
+      }
    }
    
    public void OnMoveInput(InputAction.CallbackContext context)
