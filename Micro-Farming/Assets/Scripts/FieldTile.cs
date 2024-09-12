@@ -15,6 +15,7 @@ public class FieldTile : MonoBehaviour
     public Sprite tilledSprite;
     public Sprite wateredTilledSprite;
 
+    private Crop curCrop;
     private void Start()
     {
         // Default Sprite
@@ -23,8 +24,21 @@ public class FieldTile : MonoBehaviour
 
     public void Interact()
     {
-        gameObject.SetActive(false);
-        Debug.Log("Interacted!");   
+        if (!tilled)
+        {
+            Till();
+        }
+        else if (!HasCrop() && GameManager.instance.CanPlantCrop())
+        {
+            PlantNewCrop(GameManager.instance.selectedCropToPlant);
+        }else if (HasCrop() && curCrop.CanHarvest())
+        {
+            curCrop.Harvest();
+        }
+        else
+        {
+            Water();
+        }
     }
 
     void PlantNewCrop(CropData crop)
@@ -49,6 +63,6 @@ public class FieldTile : MonoBehaviour
 
     bool HasCrop()
     {
-        return true;
+        return curCrop != null;
     }   
 }
