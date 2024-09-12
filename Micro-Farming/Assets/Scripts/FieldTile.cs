@@ -23,6 +23,7 @@ public class FieldTile : MonoBehaviour
 
     public void Interact()
     {
+        gameObject.SetActive(false);
         Debug.Log("Interacted!");   
     }
 }

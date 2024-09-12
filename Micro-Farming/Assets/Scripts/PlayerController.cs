@@ -33,6 +33,12 @@ public class PlayerController : MonoBehaviour
          srHoe.flipX = isFlip;
       }
       
+      //Interact
+      if (interactInput)
+      {
+         TryInteractTile();
+         interactInput = false;
+      }
       
    }
 
