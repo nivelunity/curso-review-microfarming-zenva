@@ -16,27 +16,50 @@ public class Crop : MonoBehaviour
 
    public void Plant(CropData crop)
    {
+      curCrop = crop;
+      plantDay = GameManager.instance.curDay;
+      daySinceLastWatered = 1;
+      UpdateCropSprite();
       
+      onPlantCrop?.Invoke(crop);
    }
 
    public void NewDayCheck()
    {
+      if (daySinceLastWatered > 3)
+      {
+         Destroy(gameObject);
+      }
       
+      UpdateCropSprite();
    }
    
    public void UpdateCropSprite()
    {
+      int cropProg = CropProgress();
       
+      if (cropProg < curCrop.daysToGrow)
+      {
+         sr.sprite = curCrop.growProgressSprites[cropProg];
+      }
+      else
+      {
+         sr.sprite = curCrop.readyToHarvestSprite;
+      }
    }
 
    public void Water()
    {
-      
+      daySinceLastWatered = 0;
    }
 
    public void Harvest()
    {
-      
+      if (CanHarvest())
+      {
+         onHarvestCrop?.Invoke(curCrop);
+         Destroy(gameObject);
+      }
    }
 
    int CropProgress()
