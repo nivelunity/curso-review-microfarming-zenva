@@ -20,4 +20,9 @@ public class FieldTile : MonoBehaviour
         // Default Sprite
         sr.sprite = grassSprite;
     }
+
+    public void Interact()
+    {
+        Debug.Log("Interacted!");   
+    }
 }
