@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CropData : MonoBehaviour
+[CreateAssetMenu(fileName = "Crop Data", menuName = "New Crop Data")]
+public class CropData : ScriptableObject
 {
    public int daysToGrow;
    public Sprite[] growProgressSprites;
-   public Sprite readyToHavestSprite;
+   public Sprite readyToHarvestSprite;
 
    public int purchasePrice;
-   public int sellprice;
+   public int sellPrice;
 }
