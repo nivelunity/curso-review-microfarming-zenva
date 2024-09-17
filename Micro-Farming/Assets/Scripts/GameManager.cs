@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         UpdateStatesText();
+        InvokeRepeating(nameof(SetNextDay), 3.0f,3.0f);
     }
 
     public void SetNextDay()
