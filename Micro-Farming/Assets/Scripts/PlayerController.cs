@@ -71,4 +71,19 @@ public class PlayerController : MonoBehaviour
          interactInput = true;
       }
    }
+
+   private void OnDrawGizmos()
+   {
+      if (interactPoint != null)
+      {
+         // Obtén la posición y dirección del rayo
+         Vector2 start = (Vector2)interactPoint.position + facingDir;
+         Vector2 direction = Vector2.up;
+         float distance = 0.5f;
+
+         // Dibuja el rayo en la escena
+         Gizmos.color = Color.red; // Color del rayo
+         Gizmos.DrawLine(start, start + direction * distance); 
+      }
+   }
 }
