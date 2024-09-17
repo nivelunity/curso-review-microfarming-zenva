@@ -6,10 +6,13 @@ using UnityEngine.Events;
 using TMPro;
 public class GameManager : MonoBehaviour
 {
-    public int curDay;
-    public int money;
-    public int cropInventory;
-
+    [SerializeField] private int curDay;
+    [SerializeField] private int money;
+    [SerializeField] private int cropInventory;
+    
+    //Encapsulamiento
+    public int CurDay { get => curDay; }
+    
     public CropData selectedCropToPlant;
     public TextMeshProUGUI statsText;
 
@@ -17,6 +20,8 @@ public class GameManager : MonoBehaviour
     
     //Singleton
     public static GameManager instance;
+
+    
 
     private void OnEnable()
     {
@@ -45,6 +50,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         UpdateStatesText();
+        InvokeRepeating(nameof(SetNextDay), 3.0f,3.0f);
     }
 
     public void SetNextDay()
@@ -88,6 +94,6 @@ public class GameManager : MonoBehaviour
 
     void UpdateStatesText()
     {
-        statsText.text = $"Día: {curDay}\n Dinero: {money}\n Semillas:{cropInventory}";
+        statsText.text = $"Día: {CurDay}\n Dinero: {money}\n Semillas:{cropInventory}";
     }
 }

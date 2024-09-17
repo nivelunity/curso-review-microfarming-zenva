@@ -17,7 +17,7 @@ public class Crop : MonoBehaviour
    public void Plant(CropData crop)
    {
       curCrop = crop;
-      plantDay = GameManager.instance.curDay;
+      plantDay = GameManager.instance.CurDay;
       daySinceLastWatered = 1;
       UpdateCropSprite();
       
@@ -66,7 +66,7 @@ public class Crop : MonoBehaviour
 
    int CropProgress()
    {
-      return GameManager.instance.curDay - plantDay;
+      return GameManager.instance.CurDay - plantDay;
    }
 
    public bool CanHarvest()
